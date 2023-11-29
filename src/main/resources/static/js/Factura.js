@@ -3,6 +3,19 @@ $(document).ready(function() {
     $('#factura').DataTable();
 });
 
+function fecha(a){
+    const fecha = new Date(a);
+    const year = fecha.getFullYear();
+    const month = String(fecha.getMonth() +1);
+    const day = String(fecha.getDate());
+    const hours = String(fecha.getHours());
+    const minutes = String(fecha.getMinutes());
+    const seconds = String(fecha.getSeconds());
+    const fechaFormateada = `${year}:${month}:${day} - ${hours}:${minutes}:${seconds}`;
+
+    return fechaFormateada;
+}
+
 async function cargarFactura() {
 
     const request = await fetch('api/v1/factura', {
@@ -17,14 +30,8 @@ async function cargarFactura() {
 
     for(let factura of facturas){
 
-       /* let btelminar = "<a href=\"#\" onclick='eliminarUsuario("+usuario.id+")' class=\"btn btn-danger btn-circle\">\n" +
-            "                                        <i class=\"fas fa-trash\"></i>\n" +
-            "                                    </a>";*/
-
-       /* let telefonoP= usuario.telefono == null ? "--" : usuario.telefono;*/
-
-        let facturahtml = "<tr><td>"+factura.id_TIPOFAC+"</td><td>"+factura.cliente_FACTURA+"</td><td>"+factura.total_FACTURA+"</td>" +
-            " <td>"+factura.descuento_FACTURA+"</td><td>"+factura.estado_FACTURA+"</td> </tr>";
+        let facturahtml = "<tr><td>"+factura.id_FACTURA+"</td><td>"+factura.cliente_FACTURA+"</td><td>"+fecha(factura.fecha_FACTURA)+"</td>" +
+            " <td>"+factura.total_FACTURA+"</td><td>"+factura.subtotal_FACTURA+"</td><td>"+(factura.descuento_FACTURA*100)+"%</td><td>"+(factura.iva_FACTURA*100)+"%</td><td>"+factura.saldo_FACTURA+"</td> </tr>";
         lista+= facturahtml;
     }
 

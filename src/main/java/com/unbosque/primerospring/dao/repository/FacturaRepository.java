@@ -13,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface FacturaRepository extends JpaRepository<Factura, Integer> {
 
     @Modifying
-    @Query(value = "CALL insert_factura(:ID_TIPOFAC, :CLIENTE_FACTURA,:TOTAL_FACTURA,:DESCUENTO_FACTURA,:ESTADO_FACTURA)", nativeQuery = true)
+    @Query(value = "CALL insert_factura(:ID_TIPOFAC, :CLIENTE_FACTURA,:TOTAL_FACTURA,:DESCUENTO_FACTURA)", nativeQuery = true)
     @Transactional
-     void insert(Long ID_TIPOFAC,  Long CLIENTE_FACTURA, double TOTAL_FACTURA,  double DESCUENTO_FACTURA,  String ESTADO_FACTURA);
+     void insert(Long ID_TIPOFAC,  Long CLIENTE_FACTURA, double TOTAL_FACTURA,  double DESCUENTO_FACTURA);
 
 
 }

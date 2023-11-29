@@ -1,5 +1,6 @@
 package com.unbosque.primerospring.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,7 +14,7 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID_FACTURA;
-    //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    /*@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")*/
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime FECHA_FACTURA = LocalDateTime.now();
     private int ID_TIPOFAC;

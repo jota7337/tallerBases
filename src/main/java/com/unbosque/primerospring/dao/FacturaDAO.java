@@ -25,8 +25,8 @@ public class FacturaDAO {
         return facturaRepository.findById(id);
     }
 
-    public void insert(Long ID_TIPOFAC,  Long CLIENTE_FACTURA, double TOTAL_FACTURA,  double DESCUENTO_FACTURA,  String ESTADO_FACTURA){
-        facturaRepository.insert(ID_TIPOFAC, CLIENTE_FACTURA,  TOTAL_FACTURA, DESCUENTO_FACTURA,  ESTADO_FACTURA);
+    public void insert(Long ID_TIPOFAC,  Long CLIENTE_FACTURA, double TOTAL_FACTURA,  double DESCUENTO_FACTURA){
+        facturaRepository.insert(ID_TIPOFAC, CLIENTE_FACTURA,  TOTAL_FACTURA, DESCUENTO_FACTURA);
     };
 
     public void saveOrUpdate(Factura factura){

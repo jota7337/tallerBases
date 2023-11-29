@@ -8,7 +8,6 @@ async function registrarFactura() {
     datos.CLIENTE_FACTURA =document.getElementById("txtClienteID").value;
     datos.TOTAL_FACTURA =document.getElementById("txtotal").value;
     datos.DESCUENTO_FACTURA =document.getElementById("txtdescuento").value;
-    datos.ESTADO_FACTURA =document.getElementById("txtEstado").value;
 
 
 
@@ -27,6 +26,6 @@ async function registrarFactura() {
         body: JSON.stringify(datos)
     });
     console.log(datos)
-    alert("se logroe registrar");
+    alert("¡Factura Registrada Exitosamente!");
     window.location.href="Factura.html";
 }
