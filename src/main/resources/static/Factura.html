@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script src="js/Factura.js"></script>
 <head>
 
   <meta charset="utf-8">
@@ -376,7 +376,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="factura" width="100%" cellspacing="0">
+              <table class="table table-bordered" id="facturas" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                   <th>Tipo de Factura</th>
@@ -388,14 +388,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>123</td>
-                  <td>Jorge Yate</td>
-                  <td>j@gmail.com</td>
-                  <td>3126432</td>
-                  <td></td>
-
-                </tr>
+                <script>
+                  cargarFactura();
+                </script>
+<!--                <tr>-->
+<!--                  <td>123</td>-->
+<!--                  <td>Jorge Yate</td>-->
+<!--                  <td>j@gmail.com</td>-->
+<!--                  <td>3126432</td>-->
+<!--                  <td></td>-->
+<!--                </tr>-->
 
                 </tbody>
               </table>
