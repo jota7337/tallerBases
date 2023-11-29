@@ -23,9 +23,8 @@ async function cargarFactura() {
 
        /* let telefonoP= usuario.telefono == null ? "--" : usuario.telefono;*/
 
-        let facturahtml = "<tr><td>"+factura.ID_TIPOCFAC+"</td><td>"+factura.CLIENTE_FACTURA+" "+factura.TOTAL_FACTURA+"</td>" +
-            " <td>"+factura.DESCUENTO_FACTURA+"</td> <td>"+factura.SALDO_FACTURA+"</td>" +
-            " <td>"+factura.ESTADO_FACTURA+"</td> </tr>";
+        let facturahtml = "<tr><td>"+factura.id_TIPOFAC+"</td><td>"+factura.cliente_FACTURA+"</td><td>"+factura.total_FACTURA+"</td>" +
+            " <td>"+factura.descuento_FACTURA+"</td><td>"+factura.estado_FACTURA+"</td> </tr>";
         lista+= facturahtml;
     }
 
