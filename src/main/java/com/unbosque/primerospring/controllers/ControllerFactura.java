@@ -17,9 +17,6 @@ public class ControllerFactura {
     @Autowired
     private FacturaDAO facturaDAO;
 
-
-
-
     @GetMapping
     public List<Factura> getAll(){
         return facturaDAO.getFactura();
@@ -34,7 +31,7 @@ public class ControllerFactura {
     public void insert(@RequestBody FacturaResponse factura){
 
         facturaDAO.insert( factura.getID_TIPOCFAC(), factura.getCLIENTE_FACTURA(),factura.getTOTAL_FACTURA(),
-                factura.getDESCUENTO_FACTURA(), factura.getESTADO_FACTURA());
+                factura.getDESCUENTO_FACTURA());
     }
 
     @DeleteMapping("/{ID_FACTURA}")

@@ -1,12 +1,12 @@
 // Call the dataTables jQuery plugin
-$(document).ready(function() {
+$(document).ready(function () {
 
 });
 
 async function iniciarSesion() {
     let datos = {};
-    datos.email =document.getElementById("txtEmail").value;
-    datos.password =document.getElementById("txtPassword").value;
+    datos.email = document.getElementById("txtEmail").value;
+    datos.password = document.getElementById("txtPassword").value;
 
     const request = await fetch('api/login', {
         method: 'POST',
@@ -17,13 +17,14 @@ async function iniciarSesion() {
 
         body: JSON.stringify(datos)
     });
-const respuesta =await request.json();
-console.log(respuesta);
+    const respuesta = await request.json();
+    console.log(respuesta);
 
-if (!respuesta.email){
-    localStorage.email = datos.email;
-    window.location.href="usuarios.html";
-}else{
-    alert("fueron incorrectas");
-}
+    if (respuesta.email) {
+        localStorage.email = datos.email;
+        window.location.href = "inicio.html";
+
+    } else {
+        alert("El usuario no está registrado. Verifique los datos");
+    }
 }

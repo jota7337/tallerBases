@@ -50,7 +50,7 @@ public class UsuarioDaoImp implements UsuarioDAO{
                .findFirst();
 
       if(lista.isEmpty()){
-          return  new Usuario();
+          return new Usuario();
       }
 
       String pasworhas=lista.get().getPassword();
