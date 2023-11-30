@@ -26,7 +26,7 @@ if (repetir!=datos.password){
 
         body: JSON.stringify(datos)
     });
-alert("se logroe registrar");
-    window.location.href="login .html";
+alert("¡Se ha registrado exitosamente!");
+    window.location.href="index.html";
 }
 

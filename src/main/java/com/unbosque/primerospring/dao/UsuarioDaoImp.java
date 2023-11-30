@@ -9,15 +9,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 @Transactional
-public class UsuarioDaoImp implements UsuarioDAO{
+public class UsuarioDaoImp implements UsuarioDAO {
     @PersistenceContext
-   private EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     @Transactional
@@ -29,7 +28,7 @@ public class UsuarioDaoImp implements UsuarioDAO{
 
     @Override
     public void eliminar(long id) {
-        Usuario usuario =entityManager.find(Usuario.class, id);
+        Usuario usuario = entityManager.find(Usuario.class, id);
         entityManager.remove(usuario);
 
     }
@@ -43,23 +42,23 @@ public class UsuarioDaoImp implements UsuarioDAO{
     public Usuario obtenerUsuario(Usuario usuario) {
 
         String query = "FROM Usuario where email = :email ";
-      Optional<Usuario> lista= entityManager.createQuery(query)
-               .setParameter("email",usuario.getEmail())
-               .getResultList()
-              .stream()
-               .findFirst();
+        Optional<Usuario> lista = entityManager.createQuery(query)
+                .setParameter("email", usuario.getEmail())
+                .getResultList()
+                .stream()
+                .findFirst();
 
-      if(lista.isEmpty()){
-          return new Usuario();
-      }
+        if (lista.isEmpty()) {
+            return new Usuario();
+        }
 
-      String pasworhas=lista.get().getPassword();
+        String pasworhas = lista.get().getPassword();
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
 
-         if( argon2.verify(pasworhas, usuario.getPassword())){
-             return lista.get();
-         }else{
-             return  new Usuario();
-         }
+        if (argon2.verify(pasworhas, usuario.getPassword())) {
+            return lista.get();
+        } else {
+            return new Usuario();
+        }
     }
 }
