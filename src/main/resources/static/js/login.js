@@ -24,11 +24,10 @@ async function iniciarSesion() {
 
 
     if (respuesta.email) {
-        /*console.log(respuesta.nombre);*/
-        window.location.href = "inicio.html";
+        localStorage.email = datos.email;
         localStorage.id = respuesta.id;
         localStorage.nombre = respuesta.nombre;
-
+        window.location.href = "/inicio";
     } else {
         alert("El usuario no está registrado. Verifique los datos");
         console.log(respuesta.email);

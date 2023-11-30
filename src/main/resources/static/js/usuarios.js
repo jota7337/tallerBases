@@ -5,6 +5,8 @@ $(document).ready(function() {
 });
 
  async function cargarUsuarios() {
+     let email = localStorage.email;
+     if (email) {
 
     const request = await fetch('api/usuarios', {
       method: 'GET',
@@ -33,7 +35,13 @@ $(document).ready(function() {
     console.log(usuarios);
 
 document.querySelector('#usuarios tbody').outerHTML =lista;
+
+     } else {
+         alert("El usuario no está registrado");
+         window.location.href = "/login";
+     }
 }
+
 
 async function eliminarUsuario(id){
 
