@@ -27,6 +27,6 @@ if (repetir!=datos.password){
         body: JSON.stringify(datos)
     });
 alert("se logroe registrar");
-    window.location.href="login .html";
+    window.location.href="/login";
 }
 

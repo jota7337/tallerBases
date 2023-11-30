@@ -3,7 +3,12 @@ $(document).ready(function() {
 });
 
 async function registrarFactura() {
-    let datos = {};
+
+    let email = localStorage.email;
+    if (email) {
+
+
+        let datos = {};
     datos.ID_TIPOCFAC =document.getElementById("txtTipoFactura").value;
     datos.CLIENTE_FACTURA =document.getElementById("txtClienteID").value;
     datos.TOTAL_FACTURA =document.getElementById("txtotal").value;
@@ -27,5 +32,10 @@ async function registrarFactura() {
     });
     console.log(datos)
     alert("¡Factura Registrada Exitosamente!");
-    window.location.href="Factura.html";
+    window.location.href="/MostrarFactura";
+
+    } else {
+        alert("El usuario no está registrado");
+        window.location.href = "/login";
+    }
 }

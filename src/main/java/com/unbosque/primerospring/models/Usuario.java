@@ -2,6 +2,9 @@ package com.unbosque.primerospring.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name ="usuario")
 public class Usuario {
@@ -19,6 +22,17 @@ public class Usuario {
     private String telefono;
     @Column(name="contrasenia")
     private String password;
+
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "rol_usuario",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol")
+    )
+    private List<Rol> rol = new ArrayList<>();
 
 
 
@@ -70,5 +84,13 @@ public class Usuario {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Rol> getRol() {
+        return rol;
+    }
+
+    public void setRol(List<Rol> rol) {
+        this.rol = rol;
     }
 }

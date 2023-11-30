@@ -22,7 +22,8 @@ async function iniciarSesion() {
 
     if (respuesta.email) {
         localStorage.email = datos.email;
-        window.location.href = "inicio.html";
+
+        window.location.href = "/inicio";
 
     } else {
         alert("El usuario no está registrado. Verifique los datos");

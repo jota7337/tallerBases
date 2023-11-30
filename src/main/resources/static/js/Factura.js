@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    cargarUsuarios();
-    $('#factura').DataTable();
+    cargarFactura();
+    $('#facturas').DataTable();
 });
 
 function fecha(a){
@@ -17,6 +17,11 @@ function fecha(a){
 }
 
 async function cargarFactura() {
+    let email = localStorage.email;
+    if (email) {
+
+
+
 
     const request = await fetch('api/v1/factura', {
         method: 'GET',
@@ -38,23 +43,11 @@ async function cargarFactura() {
     console.log(facturas);
 
     document.querySelector('#facturas tbody').outerHTML =lista;
+
+    } else {
+        alert("El usuario no está registrado");
+        window.location.href = "/login";
+    }
 }
 
-/*
-async function eliminarUsuario(id){
 
-
-    if (!confirm ("quiere eliminar el usuario")){
-        return;
-    }
-
-    const request = await fetch('api/usuarios/' + id, {
-        method: 'DELETE',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    });
-    location.reload()
-
-}*/
