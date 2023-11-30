@@ -1,9 +1,12 @@
 // Call the dataTables jQuery plugin
+
+
 $(document).ready(function () {
 
 });
 
 async function iniciarSesion() {
+
     let datos = {};
     datos.email = document.getElementById("txtEmail").value;
     datos.password = document.getElementById("txtPassword").value;
@@ -18,14 +21,16 @@ async function iniciarSesion() {
         body: JSON.stringify(datos)
     });
     const respuesta = await request.json();
-    console.log(respuesta);
+
 
     if (respuesta.email) {
         localStorage.email = datos.email;
-
+        localStorage.id = respuesta.id;
+        localStorage.nombre = respuesta.nombre;
         window.location.href = "/inicio";
-
     } else {
         alert("El usuario no está registrado. Verifique los datos");
+        console.log(respuesta.email);
+
     }
 }
