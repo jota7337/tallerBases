@@ -2,6 +2,7 @@ package com.unbosque.primerospring.controllers;
 
 
 import com.unbosque.primerospring.dao.FacturaDAO;
+import com.unbosque.primerospring.dao.UsuarioDAO;
 import com.unbosque.primerospring.models.Factura;
 import com.unbosque.primerospring.models.FacturaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,10 @@ public class ControllerFactura {
 
     @PostMapping
     public void insert(@RequestBody FacturaResponse factura){
-
         facturaDAO.insert( factura.getID_TIPOCFAC(), factura.getCLIENTE_FACTURA(),factura.getTOTAL_FACTURA(),
                 factura.getDESCUENTO_FACTURA());
     }
+
 
     @DeleteMapping("/{ID_FACTURA}")
     public void delete(@PathVariable("ID_FACTURA") Integer ID_FACTURA){

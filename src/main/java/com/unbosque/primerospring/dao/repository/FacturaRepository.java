@@ -17,5 +17,4 @@ public interface FacturaRepository extends JpaRepository<Factura, Integer> {
     @Transactional
      void insert(Long ID_TIPOFAC,  Long CLIENTE_FACTURA, double TOTAL_FACTURA,  double DESCUENTO_FACTURA);
 
-
 }

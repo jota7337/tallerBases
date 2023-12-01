@@ -15,4 +15,6 @@ public interface UsuarioDAO {
      void registrar(Usuario usuario);
 
      Usuario obtenerUsuario(Usuario usuario);
+
+     void mostrarRol(long id);
 }

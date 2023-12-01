@@ -4,7 +4,9 @@ import com.unbosque.primerospring.models.Usuario;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.ParameterMode;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.StoredProcedureQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,9 +58,19 @@ public class UsuarioDaoImp implements UsuarioDAO {
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
 
         if (argon2.verify(pasworhas, usuario.getPassword())) {
+            mostrarRol(lista.get().getId());
             return lista.get();
         } else {
             return new Usuario();
         }
+    }
+
+    @Override
+    public void mostrarRol(long idusuario) {
+        StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("funcionalidad");
+
+        storedProcedure.registerStoredProcedureParameter("idusuario", Long.class, ParameterMode.IN);
+        storedProcedure.setParameter("idusuario", idusuario);
+        int updateCount = storedProcedure.executeUpdate();
     }
 }
