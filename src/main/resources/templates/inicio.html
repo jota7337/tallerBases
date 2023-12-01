@@ -8,7 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let nombre = localStorage.nombre;
+        console.log("Este es el fucking g nombre: " + nombre);
+        let id = localStorage.id;
+        console.log("Este es el fucking g id: " + id);
+    </script>
     <title>Inicio</title>
 
     <!-- Custom fonts for this template-->
@@ -31,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/login">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/inicio">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -138,6 +144,37 @@
 
                 </nav>
                 <!-- End of Topbar -->
+
+
+                <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Registro de sus Roles</h1>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Roles</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="Roles" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Rol</th>
+                                    <th>Descripción</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
             </div>
             <!-- End of Main Content -->
         </div>
@@ -170,7 +207,6 @@
         </div>
     </div>
 
-
     <script src="js/login.js"></script>
 
     <!-- Bootstrap core JavaScript-->
@@ -190,6 +226,7 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
+    <script src="js/inicio.js"></script>
 </body>
 
 </html>

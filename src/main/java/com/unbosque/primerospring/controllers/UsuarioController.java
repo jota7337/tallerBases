@@ -1,9 +1,11 @@
 package com.unbosque.primerospring.controllers;
 
 import com.unbosque.primerospring.dao.FacturaDAO;
+import com.unbosque.primerospring.dao.RolFullDAO;
 import com.unbosque.primerospring.dao.UsuarioDAO;
 import com.unbosque.primerospring.models.Factura;
 import com.unbosque.primerospring.models.FacturaResponse;
+import com.unbosque.primerospring.models.RolComplete;
 import com.unbosque.primerospring.models.Usuario;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -19,6 +21,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioDAO usuarioDAO;
 
+    @Autowired
+    private RolFullDAO roldao;
+
 
 
     @RequestMapping(value ="api/usuarios")
@@ -26,6 +31,12 @@ public class UsuarioController {
 
         return usuarioDAO.getUsuarios();
     }
+
+    @RequestMapping(value ="api/rol")
+    public List<RolComplete> getRol(){
+        return roldao.getRol();
+    }
+
 
     @RequestMapping(value ="api/usuarios", method = RequestMethod.POST)
     public void registrarUsuario(@RequestBody Usuario usuario){
