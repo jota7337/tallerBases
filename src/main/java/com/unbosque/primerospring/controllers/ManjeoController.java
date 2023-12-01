@@ -8,7 +8,7 @@ public class ManjeoController {
 
     @GetMapping("/inicio")
     public String inicioPagina(){
-         return "Factura";
+         return "inicio";
     }
 
     @GetMapping("/RegistroFactura")

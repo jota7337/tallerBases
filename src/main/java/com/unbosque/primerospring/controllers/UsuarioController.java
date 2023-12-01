@@ -1,6 +1,9 @@
 package com.unbosque.primerospring.controllers;
 
+import com.unbosque.primerospring.dao.FacturaDAO;
 import com.unbosque.primerospring.dao.UsuarioDAO;
+import com.unbosque.primerospring.models.Factura;
+import com.unbosque.primerospring.models.FacturaResponse;
 import com.unbosque.primerospring.models.Usuario;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -15,6 +18,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioDAO usuarioDAO;
+
 
 
     @RequestMapping(value ="api/usuarios")

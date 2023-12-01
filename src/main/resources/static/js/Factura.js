@@ -20,9 +20,6 @@ async function cargarFactura() {
     let email = localStorage.email;
     if (email) {
 
-
-
-
     const request = await fetch('api/v1/factura', {
         method: 'GET',
         headers: {
